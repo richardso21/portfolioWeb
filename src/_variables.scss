@@ -9,3 +9,35 @@ $phone: 500px;
 		font-size: $sPhone;
 	}
 }
+
+@mixin layerExpand($offset, $parentPadding, $keyframeName) {
+	@keyframes #{$keyframeName} {
+		0% {
+			top: calc(#{$parentPadding});
+			left: calc(#{$parentPadding});
+		}
+		100% {
+			top: calc(#{$parentPadding} - #{$offset2});
+			left: calc(#{$parentPadding} + #{$offset2});
+		}
+	}
+}
+
+@mixin layerExpandRotate($offset, $parentPadding, $keyframeName) {
+	@keyframes #{$keyframeName} {
+		0% {
+			top: calc(#{$parentPadding});
+			left: calc(#{$parentPadding});
+			transform: rotate3d(2, 3, 0, 0deg);
+		}
+		50% {
+			top: calc(#{$parentPadding});
+			left: calc(#{$parentPadding});
+			transform: rotate3d(2, 3, 0, 30deg);
+		}
+		100% {
+			top: calc(#{$parentPadding} - #{$offset2});
+			left: calc(#{$parentPadding} + #{$offset2});
+		}
+	}
+}
