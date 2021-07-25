@@ -1,5 +1,15 @@
 <script lang="ts">
-	// import '../default.scss';
+	import { onMount } from 'svelte';
+	import VanillaTilt from 'vanilla-tilt';
+
+	onMount(() => {
+		// tilted buttons
+		const button = document.querySelectorAll('.button-container');
+		VanillaTilt.init(button, {
+			scale: 1.1,
+		});
+	});
+
 </script>
 
 <main id="main">

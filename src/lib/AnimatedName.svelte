@@ -1,14 +1,3 @@
-<script lang="ts">
-	import { onMount } from 'svelte';
-
-	onMount(() => {
-		// const logo = document.querySelectorAll('.name-svg path');
-		// for (let i = 0; i < logo.length; i++) {
-		// 	console.log(logo[i].getTotalLength());
-		// }
-	});
-</script>
-
 <div id="styled-name">
 	<svg
 		class="name-svg"
