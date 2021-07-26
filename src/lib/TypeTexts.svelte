@@ -5,14 +5,14 @@
 
 	onMount(() => {
 		const typeElem = document.getElementById('typewrite');
-		const delay = 4000;
+		const delay = 3250;
 		const typewriter = new Typewriter(typeElem, {
 			loop: true,
 			delay: 70,
 			deleteSpeed: 20
 		});
 		typeArr.forEach((str) => {
-			typewriter.typeString(str).pauseFor(delay).deleteChars(str.length);
+			typewriter.typeString(str).pauseFor(delay).deleteAll();
 		});
         typewriter.start();
 	});

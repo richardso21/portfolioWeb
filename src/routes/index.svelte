@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Button from '$lib/Button.svelte';
+	import ButtonLink from '$lib/ButtonLink.svelte';
 	import AnimatedName from '$lib/AnimatedName.svelte';
 	import TypeTexts from '$lib/TypeTexts.svelte';
 	import BGText from '$lib/BGText.svelte';
@@ -7,16 +7,20 @@
 	import { onMount } from 'svelte';
 
 	// background text
-	let hoverState: boolean = false;
-	let bgText: string;
+	let bgText: string = '';
 	function toggleHoverState(event) {
-		hoverState = event.detail.hovering;
-		bgText = event.detail.text === 'My Works' ? 'Works' : 'About';
+		if (!event.detail.hovering) {
+			bgText = '';
+			return;
+		}
+		bgText = event.detail.ref === 'works' ? 'Works' : 'About';
 	}
 
+	// parallax
 	onMount(() => {
+		// disable parallax is phone screen
 		if (window.innerWidth < 500) return;
-		// parallax
+
 		const container = document.getElementById('index');
 		new Parallax(container, {
 			pointerEvents: true
@@ -30,9 +34,7 @@
 	<title>Richard So</title>
 </svelte:head>
 
-{#if hoverState}
-	<BGText text={bgText} />
-{/if}
+<BGText text={bgText} />
 <section id="index">
 	<div class="container" data-depth="0.15">
 		<div class="content">
@@ -48,12 +50,13 @@
 				</div>
 			</div>
 			<div class="buttons">
-				<Button href="/about" text="My Works" size="1.5rem" on:hover={toggleHoverState} />
-				<Button href="/about" text="About Me" size="1.5rem" on:hover={toggleHoverState} />
+				<ButtonLink href="/works" on:hover={toggleHoverState}>My Works</ButtonLink>
+				<ButtonLink href="/about" on:hover={toggleHoverState}>About Me</ButtonLink>
 			</div>
 		</div>
 	</div>
 </section>
+<!-- <Button/> -->
 
 <style lang="scss">
 	@import '../variables';
@@ -70,7 +73,7 @@
 		align-items: center;
 		flex-direction: column;
 		.hero {
-			margin: 2rem;
+			margin: 1rem;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
@@ -92,15 +95,15 @@
 			display: flex;
 			animation: fadeIn 0.5s ease forwards 1.5s;
 		}
-		@keyframes fadeIn {
-			from {
-				opacity: 0;
-				pointer-events: none;
-			}
-			to {
-				opacity: 1;
-				pointer-events: all;
-			}
+	}
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+			pointer-events: none;
+		}
+		to {
+			opacity: 1;
+			pointer-events: all;
 		}
 	}
 </style>

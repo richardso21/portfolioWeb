@@ -1,22 +1,28 @@
 <script lang="ts">
-	export let text;
+	export let text,
+		size = '20vw';
 	import { cubicOut } from 'svelte/easing';
 
 	function animateBG(node, { duration }) {
+		const style = getComputedStyle(node);
 		return {
 			duration,
+			easing: cubicOut,
 			css: (t) => {
-				const eased = cubicOut(t);
 				return `
-					transform: translate(-50%, -50%) rotate(-25deg) translate(-${(1 - eased) * 25}%);
-                    opacity: ${eased};
+					transform: ${style.transform} translate(-${(1 - t) * 25}%);
+                    opacity: ${t};
 				`;
 			}
 		};
 	}
 </script>
 
-<span class="bg-text" transition:animateBG={{ duration: 150 }}>{text}</span>
+{#key text}
+	<span class="bg-text" style="font-size: {size};" transition:animateBG={{ duration: 150 }}
+		>{text}</span
+	>
+{/key}
 
 <style lang="scss">
 	:global(.bg-text) {
@@ -26,7 +32,6 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%) rotate(-25deg);
-		font-size: 20vw;
 		font-weight: bold;
 		font-style: italic;
 		color: transparent;
