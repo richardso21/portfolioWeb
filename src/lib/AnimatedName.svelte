@@ -1,4 +1,5 @@
 <div id="styled-name">
+	<h1>Richard So</h1>
 	<svg
 		class="name-svg"
 		fill="none"
@@ -36,6 +37,12 @@
         width: 100%;
         margin: auto;
     }
+	h1 {
+		position: absolute;
+		opacity: 0;
+		font-size: 12vw;
+		margin: 0;
+	}
 	.name-svg {
         width: 100%;
         // padding: 2rem;
