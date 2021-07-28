@@ -18,8 +18,8 @@
 
 	// parallax
 	onMount(() => {
-		// disable parallax is phone screen
-		if (window.innerWidth < 500) return;
+		// disable parallax is phone/tablet screen
+		if (window.innerWidth < 1300) return;
 
 		const container = document.getElementById('index');
 		new Parallax(container, {
@@ -56,7 +56,6 @@
 		</div>
 	</div>
 </section>
-<!-- <Button/> -->
 
 <style lang="scss">
 	@import '../variables';
