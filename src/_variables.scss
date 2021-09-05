@@ -1,5 +1,5 @@
 $tablet: 1200px;
-$phone: 500px;
+$phone: 650px;
 
 @mixin responsiveFont($sTablet, $sPhone: $sTablet) {
 	@media (max-width: $tablet) {

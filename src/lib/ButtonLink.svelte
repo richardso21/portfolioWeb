@@ -3,7 +3,7 @@
 	import { createEventDispatcher, onMount } from 'svelte';
 	import VanillaTilt from 'vanilla-tilt';
 
-	const textCondensed = href.replace('/', '');
+	const refId = href.replace('/', '');
 	let hovering = false;
 
 	// dispatch hover state to parent
@@ -11,19 +11,19 @@
 	function toggleHover() {
 		hovering = !hovering;
 		dispatch('hover', {
-			ref: textCondensed,
+			ref: refId,
 			hovering
 		});
 	}
 
 	// tilted button
 	onMount(() => {
-		const button: HTMLElement = document.querySelector(`.button-${textCondensed}`);
+		const button: HTMLElement = document.querySelector(`.button-${refId}`);
 		VanillaTilt.init(button, { scale: 1.1 });
 	});
 </script>
 
-<div class="button-container button-{textCondensed}">
+<div class="button-container button-{refId}">
 	<a class="button" {href} on:mouseenter={toggleHover} on:mouseleave={toggleHover}>
 		<slot />
 	</a>

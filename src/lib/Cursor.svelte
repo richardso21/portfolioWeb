@@ -27,7 +27,7 @@
 			height: 80px;
 			width: 80px;
 			transform: scale(0.25);
-			transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+			transition: transform 0.35s cubic-bezier(0.075, 0.82, 0.165, 1);
 		}
 	}
 	:global(.pressed) {
