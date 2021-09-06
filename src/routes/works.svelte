@@ -10,11 +10,11 @@ import WorksGridItem from '$lib/WorksGridItem.svelte';
 <section id="works">
     <PageTitle>Works & Projects</PageTitle>
 	<div class="container">
-		<WorksGridItem title="Testing" tech="Nuxt, Google" imgUrl="/favicon.png" href="/testing" />
+		<WorksGridItem title="Testing" tech="tech" imgUrl="/favicon.png" href="/testing1" />
 		<WorksGridItem title="Testing" tech="tech" imgUrl="/favicon.png" href="/testing2" />
 		<WorksGridItem title="Testing" tech="tech" imgUrl="/favicon.png" href="/testing3" />
 		<WorksGridItem title="Testing" tech="tech" imgUrl="/favicon.png" href="/testing4" />
-		<WorksGridItem title="Caribou Image Detector" tech="tech" imgUrl="/favicon.png" href="/testing5" />
+		<WorksGridItem title="Testing" tech="tech" imgUrl="/favicon.png" href="/testing5" />
 	</div>
 </section>
 

@@ -13,17 +13,23 @@
 </script>
 
 <div class="item-parent work-{workId}">
-	<div class="card-container">
-		<img class="bg-img" src={imgUrl} alt="" />
-	</div>
-	<span class="reveal card-tech">{tech}</span>
-	<span class="reveal card-date">Sept 2021</span>
-	<h2 class="card-title">{title}</h2>
+	<a {href}>
+		<div class="card-container">
+			<img class="bg-img" src={imgUrl} alt="" />
+		</div>
+		<span class="reveal card-tech">{tech}</span>
+		<span class="reveal card-date">Sept 2021</span>
+		<h2 class="card-title">{title}</h2>
+	</a>
 </div>
 
 <style lang="scss">
 	.item-parent {
 		margin: 2.5rem;
+		a {
+			text-decoration: none;
+			color: white;
+		}
 	}
 	* {
 		transition: all 0.75s cubic-bezier(0.075, 0.82, 0.165, 1);

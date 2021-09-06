@@ -3,7 +3,8 @@
 </script>
 
 <div id="pointer" style="transform: translate({x}px, {y}px)">
-	<span id="dot" class:pressed />
+	<span id="dot" class:pressed/>
+	<!-- <span id="dot" class:pressed /> -->
 </div>
 
 <style lang="scss">
@@ -19,7 +20,7 @@
 		z-index: 10;
 		mix-blend-mode: difference;
 		transform: translate(-100px, -100px);
-		transition: transform 0.05s ease;
+		transition: all 0.05s ease;
 		#dot {
 			border-radius: 100%;
 			background-color: white;
@@ -27,10 +28,13 @@
 			height: 80px;
 			width: 80px;
 			transform: scale(0.25);
-			transition: transform 0.35s cubic-bezier(0.075, 0.82, 0.165, 1);
+			transition: all 0.35s cubic-bezier(0.075, 0.82, 0.165, 1);
 		}
 	}
 	:global(.pressed) {
 		transform: scale(1.25) !important;
 	}
+	// :global(.hovered) {
+	// 	background-color: lightgreen !important;
+	// }
 </style>
