@@ -1,18 +1,8 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-
 	export let title: string, tech: string, imgUrl: string, href: string;
-	import VanillaTilt from 'vanilla-tilt';
-
-	const workId = href.replace('/', '');
-
-	onMount(() => {
-		const workGridItem: HTMLElement = document.querySelector(`.work-${workId}`);
-		VanillaTilt.init(workGridItem, { scale: 1.15, perspective: 5000 });
-	});
 </script>
 
-<div class="item-parent work-{workId}">
+<div class="works-grid-item item-parent">
 	<a {href}>
 		<div class="card-container">
 			<img class="bg-img" src={imgUrl} alt="" />
@@ -25,6 +15,7 @@
 
 <style lang="scss">
 	.item-parent {
+		opacity: 0;
 		margin: 2.5rem;
 		a {
 			text-decoration: none;

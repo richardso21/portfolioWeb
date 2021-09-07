@@ -84,7 +84,7 @@
 				color: #afafaf;
 				font-weight: lighter;
 				opacity: 0;
-				animation: fadeIn 0.5s ease forwards 1.5s;
+				animation: fadeIn 0.5s ease forwards 1.25s;
 				@include responsiveFont(2.25rem, 1.5rem);
 			}
 		}
@@ -92,7 +92,7 @@
 			opacity: 0;
 			pointer-events: none;
 			display: flex;
-			animation: fadeIn 0.5s ease forwards 1.5s;
+			animation: fadeIn 0.5s ease forwards 1.25s;
 		}
 	}
 	@keyframes fadeIn {

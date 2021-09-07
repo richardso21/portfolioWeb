@@ -12,21 +12,8 @@
 	import { onMount } from 'svelte';
 	export let key;
 	let x, y, pressed, desktop;
-	let hovered;
 	onMount(() => {
 		desktop = window.innerWidth > 1400;
-
-		// hovered = false;
-		// const links = document.querySelectorAll('a');
-		// links.forEach((link) => {
-		// 	link.addEventListener('mouseover', (e) => {
-		// 		hovered = true;
-		// 	});
-		// 	link.addEventListener('mouseout', (e) => {
-		// 		hovered = false;
-		// 	});
-		// });
-
 		document.addEventListener('mousemove', (e) => {
 			// track cursor with custom css circle
 			x = e.clientX;
@@ -63,5 +50,6 @@
 	}
 	:global(*) {
 		cursor: none;
+		user-select: none;
 	}
 </style>

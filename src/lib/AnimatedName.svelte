@@ -1,3 +1,18 @@
+<script lang="ts">
+	import anime from 'animejs/lib/anime.es';
+	import { onMount } from 'svelte';
+
+	onMount(() => {
+		anime({
+			targets: 'path',
+			strokeDashoffset: [anime.setDashoffset, 0],
+			easing: 'easeInOutSine',
+			duration: 1250,
+			delay: anime.stagger(50),
+		});
+	});
+</script>
+
 <div id="styled-name">
 	<h1>Richard So</h1>
 	<svg
@@ -32,11 +47,11 @@
 </div>
 
 <style lang="scss">
-    @import '../variables';
-    #styled-name {
-        width: 100%;
-        margin: auto;
-    }
+	@import '../variables';
+	#styled-name {
+		width: 100%;
+		margin: auto;
+	}
 	h1 {
 		position: absolute;
 		opacity: 0;
@@ -44,62 +59,28 @@
 		margin: 0;
 	}
 	.name-svg {
-        width: 100%;
-        // padding: 2rem;
-        @keyframes trace {
-            to {
-                stroke-dashoffset: 0;
-                transform: rotate3d(3, 2, 0, 30deg);
-            }
-        }
-        @keyframes fillIn {
-            from {
-                fill: transparent;
-            }
-            to {
-                fill: white;
-            }
-        }
-        path {
-            animation: trace 2s ease forwards, fillIn .5s ease forwards 1.5s;
-            stroke-linejoin: round;
-            stroke-linecap: round;
-        }
-		path:nth-child(1) {
-			stroke-dasharray: 527.38px;
-			stroke-dashoffset: 527.38px;
+		width: 100%;
+		@keyframes shift {
+			from {
+				opacity: 0;
+			}
+			to {
+				transform: rotate3d(3, 2, 0, 30deg);
+				opacity: 1;
+			}
 		}
-		path:nth-child(2) {
-			stroke-dasharray: 388.54px;
-			stroke-dashoffset: 388.54px;
+		@keyframes fillIn {
+			from {
+				fill: transparent;
+			}
+			to {
+				fill: white;
+			}
 		}
-		path:nth-child(3) {
-			stroke-dasharray: 361.14px;
-			stroke-dashoffset: 361.14px;
-		}
-		path:nth-child(4) {
-			stroke-dasharray: 469.94px;
-			stroke-dashoffset: 469.94px;
-		}
-		path:nth-child(5) {
-			stroke-dasharray: 436.51px;
-			stroke-dashoffset: 436.51px;
-		}
-		path:nth-child(6) {
-			stroke-dasharray: 277.49px;
-			stroke-dashoffset: 277.49px;
-		}
-		path:nth-child(7) {
-			stroke-dasharray: 474.63px;
-			stroke-dashoffset: 474.63px;
-		}
-		path:nth-child(8) {
-			stroke-dasharray: 511.89px;
-			stroke-dashoffset: 511.89px;
-		}
-		path:nth-child(9) {
-			stroke-dasharray: 371.17px;
-			stroke-dashoffset: 371.17px;
+		path {
+			animation: shift 1.5s ease forwards, fillIn 0.5s ease forwards 1.25s;
+			stroke-linejoin: round;
+			stroke-linecap: round;
 		}
 	}
 </style>
