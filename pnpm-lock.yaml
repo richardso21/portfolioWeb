@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@prismicio/client': ^5.1.0
   '@sveltejs/adapter-vercel': next
   '@sveltejs/kit': next
   '@typescript-eslint/eslint-plugin': ^4.19.0
@@ -26,6 +27,7 @@ dependencies:
   vanilla-tilt: 1.7.0
 
 devDependencies:
+  '@prismicio/client': 5.1.0
   '@sveltejs/adapter-vercel': 1.0.0-next.28
   '@sveltejs/kit': 1.0.0-next.164_svelte@3.38.3
   '@typescript-eslint/eslint-plugin': 4.28.3_8da3816a7c3fb8ebc9f4c4b3e4b2e38f
@@ -117,6 +119,13 @@ packages:
       fastq: 1.11.1
     dev: true
 
+  /@prismicio/client/5.1.0:
+    resolution: {integrity: sha512-LCb+arVVxJOoPM+8qfLCC/Dqse7mh+Q1k3oo5W5Uzu7vVO+vtc7CUYHxgCDkvekakYHc9407kwWu65ErZw+CPQ==}
+    engines: {node: '>=0.10.3'}
+    dependencies:
+      cross-fetch: 3.1.4
+    dev: true
+
   /@rollup/pluginutils/4.1.1:
     resolution: {integrity: sha512-clDjivHqWGXi7u+0d2r2sBi4Ie6VLEAzWMIkvJLnDmxoOhBYOTfzGbOQBA32THHm11/LiJbd01tJUpJsbshSWQ==}
     engines: {node: '>= 8.0.0'}
@@ -128,7 +137,7 @@ packages:
   /@sveltejs/adapter-vercel/1.0.0-next.28:
     resolution: {integrity: sha512-a2n4UCuTu5LhUoS5KiI5xasgvIXW8qKnSSKOnTTLYlZhpJ5VnSKWyT9hUOoVsAEGkeZw+2SYxxI3Vckw6ZhSng==}
     dependencies:
-      esbuild: 0.12.16
+      esbuild: 0.12.25
     dev: true
 
   /@sveltejs/kit/1.0.0-next.164_svelte@3.38.3:
@@ -472,6 +481,12 @@ packages:
     resolution: {integrity: sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=}
     dev: true
 
+  /cross-fetch/3.1.4:
+    resolution: {integrity: sha512-1eAtFWdIubi6T4XPy6ei9iUFoKpUkIF971QLN8lIvvvwueI65+Nw5haMNKUwfJxabqlIIDODJKGrQ66gxC0PbQ==}
+    dependencies:
+      node-fetch: 2.6.1
+    dev: true
+
   /cross-spawn/7.0.3:
     resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
     engines: {node: '>= 8'}
@@ -525,12 +540,6 @@ packages:
     engines: {node: '>=8.6'}
     dependencies:
       ansi-colors: 4.1.1
-    dev: true
-
-  /esbuild/0.12.16:
-    resolution: {integrity: sha512-XqI9cXP2bmQ6MREIqrYBb13KfYFSERsV1+e5jSVWps8dNlLZK+hln7d0mznzDIpfISsg/AgQW0DW3kSInXWhrg==}
-    hasBin: true
-    requiresBuild: true
     dev: true
 
   /esbuild/0.12.25:
@@ -1009,6 +1018,11 @@ packages:
 
   /natural-compare/1.4.0:
     resolution: {integrity: sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=}
+    dev: true
+
+  /node-fetch/2.6.1:
+    resolution: {integrity: sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw==}
+    engines: {node: 4.x || >=6.0.0}
     dev: true
 
   /normalize-path/3.0.0:

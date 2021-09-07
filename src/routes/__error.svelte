@@ -37,7 +37,7 @@ import ButtonLink from '$lib/ButtonLink.svelte';
 		}
 		span {
 			display: inline-block;
-			font-size: 2vw;
+			font-size: 1.15vw;
             font-style: italic;
             font-weight: lighter;
             @include responsiveFont(2.5rem, 1.25rem)

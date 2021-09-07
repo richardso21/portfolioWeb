@@ -1,3 +1,16 @@
+<script context="module">
+	import { Client, getType } from './../../utils/client';
+
+	export async function load() {
+		const works = await getType('works');
+		return {
+			props: {
+				works
+			}
+		};
+	}
+</script>
+
 <script lang="ts">
 	import PageTitle from '$lib/PageTitle.svelte';
 	import WorksGridItem from '$lib/WorksGridItem.svelte';
@@ -5,16 +18,19 @@
 	import VanillaTilt from 'vanilla-tilt';
 	import { onMount } from 'svelte';
 
+	export let works;
+
+	console.log(works[0]);
 	onMount(() => {
 		anime({
 			targets: '.works-grid-item',
 			translateY: [250, 0],
 			opacity: [0, 1],
-			delay: anime.stagger(100, {start: 200}),
-			easing: "easeOutExpo",
-			duration: 1000,
+			delay: anime.stagger(100, { start: 200 }),
+			easing: 'easeOutExpo',
+			duration: 1000
 		});
-		VanillaTilt.init(document.querySelectorAll('.works-grid-item'), {
+		VanillaTilt.init((document.querySelectorAll('.works-grid-item') as unknown) as HTMLElement[], {
 			scale: 1.15,
 			perspective: 5000
 		});
