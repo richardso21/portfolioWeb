@@ -17,7 +17,7 @@
 		margin-top: -40px;
 		pointer-events: none;
 		position: fixed;
-		z-index: 10;
+		z-index: 9999;
 		mix-blend-mode: difference;
 		transform: translate(-100px, -100px);
 		transition: all 0.05s ease;

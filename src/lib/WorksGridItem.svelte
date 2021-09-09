@@ -1,15 +1,15 @@
 <script lang="ts">
-	export let title: string, tech: string, imgUrl: string, href: string;
+	export let data, href: string;
 </script>
 
 <div class="works-grid-item item-parent">
 	<a {href}>
 		<div class="card-container">
-			<img class="bg-img" src={imgUrl} alt="" />
+			<img class="bg-img" src={data.image.url} alt="" />
 		</div>
-		<span class="reveal card-tech">{tech}</span>
-		<span class="reveal card-date">Sept 2021</span>
-		<h2 class="card-title">{title}</h2>
+		<span class="reveal card-tech">{data.tech}</span>
+		<span class="reveal card-date">{data.date}</span>
+		<h2 class="card-title">{data.title}</h2>
 	</a>
 </div>
 
@@ -33,6 +33,7 @@
 			height: 100%;
 			width: 100%;
 			object-fit: cover;
+			background-color: rgb(20, 20, 20);
 		}
 	}
 	.reveal {

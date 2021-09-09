@@ -20,7 +20,7 @@
 
 	export let works;
 
-	console.log(works[0]);
+	console.log(works);
 	onMount(() => {
 		anime({
 			targets: '.works-grid-item',
@@ -44,11 +44,9 @@
 <section id="works">
 	<PageTitle>Works & Projects</PageTitle>
 	<div class="container">
-		<WorksGridItem title="Testing" tech="tech" imgUrl="/favicon.png" href="/works/testing1" />
-		<WorksGridItem title="Testing" tech="tech" imgUrl="/favicon.png" href="/testing2" />
-		<WorksGridItem title="Testing" tech="tech" imgUrl="/favicon.png" href="/testing3" />
-		<WorksGridItem title="Testing" tech="tech" imgUrl="/favicon.png" href="/testing4" />
-		<WorksGridItem title="Testing" tech="tech" imgUrl="/favicon.png" href="/testing5" />
+		{#each works as {data}}
+			<WorksGridItem {data} href="/" />
+		{/each}
 	</div>
 </section>
 

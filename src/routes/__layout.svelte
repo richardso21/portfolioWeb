@@ -9,6 +9,9 @@
 <script lang="ts">
 	import Cursor from '$lib/Cursor.svelte';
 	import PageAnimation from '$lib/PageAnimation.svelte';
+	import Loading from '$lib/Loading.svelte';
+	import Nav from '$lib/Nav.svelte';
+	import { navigating } from '$app/stores';
 	import { onMount } from 'svelte';
 	export let key;
 	let x, y, pressed, desktop;
@@ -28,11 +31,15 @@
 	});
 </script>
 
+<Nav />
+{#if desktop}
+	<Cursor {pressed} {x} {y} />
+{/if}
 <PageAnimation refresh={key}>
 	<slot />
 </PageAnimation>
-{#if desktop}
-	<Cursor {pressed} {x} {y} />
+{#if $navigating}
+	<Loading />
 {/if}
 
 <style lang="scss">
@@ -49,7 +56,7 @@
 		color: white;
 	}
 	:global(*) {
-		cursor: none;
+		cursor: none !important;
 		user-select: none;
 	}
 </style>
