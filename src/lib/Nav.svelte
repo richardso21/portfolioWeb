@@ -4,20 +4,22 @@
 	let active: boolean = false;
 
 	onMount(() => {
+		const hamburger = document.querySelector('.hamburger');
+
 		let open: boolean = false;
 		const animate = anime({
 			targets: '.anim',
 			width: ['0%', '100%'],
 			easing: 'easeInOutExpo',
 			delay: anime.stagger(250),
-			duration: 750,
+			duration: 500,
 			autoplay: false
 		});
-		document.querySelector('.hamburger').addEventListener('click', (e) => {
+
+		animate.reverse();
+		hamburger.addEventListener('click', () => {
+			animate.reverse();
 			animate.play();
-			animate.finished.then(() => {
-				animate.reverse();
-			});
 		});
 	});
 </script>
