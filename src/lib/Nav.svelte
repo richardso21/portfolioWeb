@@ -6,6 +6,7 @@
 
 	onMount(() => {
 		const hamburger = document.querySelector('.hamburger');
+		const links = document.querySelectorAll('.nav-item');
 
 		anime({
 			targets: '.nav-container',
@@ -15,9 +16,8 @@
 			delay: 1250
 		});
 
-		let open: boolean = false;
 		const anim = anime.timeline({
-			autoplay: false,
+			autoplay: false
 		});
 		anim.add({
 			targets: '.anim',
@@ -26,18 +26,29 @@
 			delay: anime.stagger(250),
 			duration: 500
 		});
-		anim.add({
-			targets: '.anim-container',
-			translateX: [-500, 0],
-			easing: 'easeInOutExpo',
-			delay: anime.stagger(75),
-			duration: 500
-		}, '-=750');
+		anim.add(
+			{
+				targets: '.anim-container',
+				translateX: [-500, 0],
+				easing: 'easeInOutExpo',
+				delay: anime.stagger(75),
+				duration: 500
+			},
+			'-=750'
+		);
 
 		anim.reverse();
-		hamburger.addEventListener('click', () => {
+		function toggle() {
 			anim.reverse();
 			anim.play();
+		}
+
+		hamburger.addEventListener('click', toggle);
+		links.forEach((e) => {
+			e.addEventListener('click', () => {
+				active = !active;
+				toggle();
+			});
 		});
 	});
 </script>

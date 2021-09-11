@@ -31,11 +31,11 @@
 	});
 </script>
 
+<Nav />
 {#if desktop}
 	<Cursor {pressed} {x} {y} />
 {/if}
 <PageAnimation refresh={key}>
-	<Nav />
 	<slot />
 </PageAnimation>
 {#if $navigating}
