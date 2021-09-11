@@ -1,25 +1,43 @@
 <script lang="ts">
 	import anime from 'animejs/lib/anime.es';
 	import { onMount } from 'svelte';
+	import NavItem from '$lib/NavItem.svelte';
 	let active: boolean = false;
 
 	onMount(() => {
 		const hamburger = document.querySelector('.hamburger');
 
+		anime({
+			targets: '.nav-container',
+			opacity: [0, 1],
+			easing: 'easeOutSine',
+			duration: 500,
+			delay: 1250
+		});
+
 		let open: boolean = false;
-		const animate = anime({
+		const anim = anime.timeline({
+			autoplay: false,
+		});
+		anim.add({
 			targets: '.anim',
 			width: ['0%', '100%'],
 			easing: 'easeInOutExpo',
 			delay: anime.stagger(250),
-			duration: 500,
-			autoplay: false
+			duration: 500
 		});
+		anim.add({
+			targets: '.anim-container',
+			translateX: [-500, 0],
+			easing: 'easeInOutExpo',
+			delay: anime.stagger(75),
+			duration: 500
+		}, '-=750');
 
-		animate.reverse();
+		anim.reverse();
 		hamburger.addEventListener('click', () => {
-			animate.reverse();
-			animate.play();
+			anim.reverse();
+			anim.play();
 		});
 	});
 </script>
@@ -38,7 +56,12 @@
 		</div>
 	</button>
 	<div class="nav anim">
-		<div class="nav-links">testing</div>
+		<div class="nav-links">
+			<NavItem href="/">Home</NavItem>
+			<NavItem href="/works">My Works</NavItem>
+			<NavItem href="/about">About Me</NavItem>
+			<NavItem href="/">Contact</NavItem>
+		</div>
 	</div>
 	<div class="wipe anim" />
 </div>
@@ -51,13 +74,17 @@
 
 	.hamburger {
 		pointer-events: all;
+		margin: 1rem 1.5rem;
+		position: absolute;
+		z-index: 10000;
 	}
 
 	.nav-container {
+		opacity: 0;
 		position: fixed;
 		top: 0;
 		left: 0;
-		height: 100vh;
+		height: 100%;
 		width: 25%;
 		z-index: 1000;
 		pointer-events: none;
@@ -70,6 +97,19 @@
 			background-color: white;
 			color: black;
 			overflow: hidden;
+			.nav-links {
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-evenly;
+				align-items: center;
+			}
+		}
+		.overlay {
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: transparent;
 		}
 		.wipe {
 			position: absolute;
