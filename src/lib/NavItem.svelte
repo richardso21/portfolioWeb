@@ -40,6 +40,6 @@
 		transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
 	}
 	.nav-item-parent:hover {
-		transform: rotate3d(3, 2, 0, 25deg) scale(1.5);
+		transform: rotate3d(-3, 4, 0, 25deg) scale(1.5);
 	}
 </style>

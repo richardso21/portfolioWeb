@@ -14,6 +14,16 @@
 	import { navigating } from '$app/stores';
 	import { onMount } from 'svelte';
 	export let key;
+
+	let display = true;
+	function remountCursor(key) {
+		display = false;
+		setTimeout(() => (display = true), 250);
+	}
+	$: {
+		remountCursor(key);
+	}
+
 	let x, y, pressed, desktop;
 	onMount(() => {
 		desktop = window.innerWidth > 1400;
@@ -32,7 +42,7 @@
 </script>
 
 <Nav />
-{#if desktop}
+{#if desktop && display === true}
 	<Cursor {pressed} {x} {y} />
 {/if}
 <PageAnimation refresh={key}>

@@ -1,12 +1,27 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
+
 	export let x, y, pressed;
+	let hovered = false;
+	onMount(() => {
+		const links = document.querySelectorAll('a');
+		links.forEach((e) => {
+			e.addEventListener('mouseover', () => {
+				hovered = true;
+			});
+			e.addEventListener('mouseout', () => {
+				hovered = false;
+			});
+		});
+	});
 </script>
 
-<div id="pointer" style="transform: translate({x}px, {y}px)">
-	<span id="dot" class:pressed/>
-	<!-- <span id="dot" class:pressed /> -->
+<div id="pointer" style="transform: translate({x}px, {y}px)" transition:fade={{ duration: 100 }}>
+	<span id="dot" class:pressed class:hovered />
 </div>
 
+<!-- {/key} -->
 <style lang="scss">
 	#pointer {
 		height: 80px;
@@ -34,7 +49,7 @@
 	:global(.pressed) {
 		transform: scale(1.25) !important;
 	}
-	// :global(.hovered) {
-	// 	background-color: lightgreen !important;
-	// }
+	:global(.hovered) {
+		background-color: lightseagreen !important;
+	}
 </style>
