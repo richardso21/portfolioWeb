@@ -50,6 +50,6 @@
 		transform: scale(1.25) !important;
 	}
 	:global(.hovered) {
-		background-color: lightseagreen !important;
+		background-color: rgb(0, 255, 0) !important;
 	}
 </style>

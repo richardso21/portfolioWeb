@@ -2,7 +2,7 @@
 	import { Client, getType } from './../../utils/client';
 
 	export async function load() {
-		const works = await getType('works');
+		const works = await getType('works_preview');
 		return {
 			props: {
 				works
@@ -19,6 +19,8 @@
 	import { onMount } from 'svelte';
 
 	export let works;
+	console.log(works);
+	
 
 	onMount(() => {
 		anime({
@@ -43,8 +45,8 @@
 <section id="works">
 	<PageTitle>Works & Projects</PageTitle>
 	<div class="container">
-		{#each works as { data }}
-			<WorksGridItem {data} href="/" />
+		{#each works as { uid, data }}
+			<WorksGridItem {data} href="/work/{uid}" />
 		{/each}
 	</div>
 </section>

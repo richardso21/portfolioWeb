@@ -78,6 +78,7 @@
 </div>
 
 <style lang="scss">
+	// TODO : fix hover thru elements behind nav over spaces b/w links
 	$hamburger-color: #fff;
 	$hamburger-thickness: 4px;
 	@import 'node_modules/delicious-hamburgers/scss/base';
